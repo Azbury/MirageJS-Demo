@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>MirageJS Demo</h1>
+    <img src="./assets/mirage-js.png"  class="mirage-title"/>
     <Table>
     </Table>
   </div>
@@ -24,6 +24,22 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  background-color: black;
+}
+
+.mirage-title {
+  max-height: 10rem;
+}
+
+body {
+  margin: 0;
+}
+
+.table {
+  max-height: 800px;
+}
+
+.developer {
+  max-height: 100px;
 }
 </style>
