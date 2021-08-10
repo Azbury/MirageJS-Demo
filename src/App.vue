@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <h1>MirageJS Demo</h1>
     <Table>
     </Table>
   </div>
