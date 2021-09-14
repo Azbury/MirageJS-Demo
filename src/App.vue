@@ -42,4 +42,8 @@ body {
 .developer {
   max-height: 100px;
 }
+
+.image-container {
+  position: relative;
+}
 </style>

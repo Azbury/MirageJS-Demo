@@ -2,26 +2,23 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import App from './App.vue';
 import axios from 'axios';
-import { createServer, Model, Factory } from 'miragejs';
+import { createServer, Model } from 'miragejs';
 
 createServer({
   models: {
     food: Model,
     developer: Model
   },
-  factories: {
-    contract: Factory.extend({
-      contracted() {
-        return Math.random() < 0.5;
-      }
-    })
-  },
   routes() {
     this.get('/developers');
   },
   seeds(server) {
     server.create('developer', { name: 'Austin', picture: 'https://avatars.githubusercontent.com/u/18554928?v=4' });
-    server.createList('contract', 235);
+    server.create('developer', { name: 'Chad', picture: 'https://avatars.githubusercontent.com/u/2921868?v=4' });
+    server.create('developer', { name: 'Ryan', picture: 'https://avatars.githubusercontent.com/u/5217768?v=4' });
+    server.create('developer', { name: 'Ted', picture: 'https://avatars.githubusercontent.com/u/5313708?v=4' });
+    server.create('developer', { name: 'John', picture: 'https://avatars.githubusercontent.com/u/10562755?v=4' });
+    server.create('developer', { name: 'Jamie', picture: 'https://avatars.githubusercontent.com/u/24712731?v=4' });
   }
 })
 
