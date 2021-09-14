@@ -6,11 +6,15 @@ import { createServer, Model } from 'miragejs';
 
 createServer({
   models: {
-    food: Model,
     developer: Model
   },
   routes() {
     this.get('/developers');
+    this.post('/developers', function (schema, request) {
+      let attrs = JSON.parse(request.requestBody);
+      return schema.developers.create(attrs);
+    });
+    this.del('developers/:id')
   },
   seeds(server) {
     server.create('developer', { name: 'Austin', picture: 'https://avatars.githubusercontent.com/u/18554928?v=4' });
@@ -32,6 +36,21 @@ const store = new Vuex.Store({
       return axios({
         method: 'get',
         baseURL: '/developers'
+      })
+    },
+    createDeveloper: ({ state }, payload) => { 
+      console.log(state)
+      return axios({
+        method: 'post',
+        baseURL: '/developers',
+        data: payload
+      })
+    },
+    deleteDeveloper: ({ state }, payload) => {
+      console.log(state)
+      return axios({
+        method: 'delete',
+        baseURL: `/developers/${payload}`
       })
     }
   }

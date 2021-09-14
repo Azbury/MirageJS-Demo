@@ -10,6 +10,23 @@
         :absolutePositioning="absolutePositioning[index]"
         :key="developer.name"></developer>
     </template>
+    <div style="display: flex">
+    <form style="padding-bottom: 2rem; width: 50%; padding-left: 20rem" class="submit-form" @submit.prevent="addDeveloper">
+      <span style="font-size: 4rem">Add Developer</span>
+      <div class="form-field">
+        <label for="name" style="margin-right: 10px">Name</label>
+        <input type="text" id="name" v-model="name">
+      </div>
+      <div class="form-field">
+        <label for="picture" style="margin-right: 10px">Picture URL</label>
+        <input type="text" id="picture" v-model="picture">
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+    <div style="width: 50%; display: flex; align-items: center; justify-content: center; padding-right: 10rem">
+      <button @click.prevent="deleteDeveloper">Delete Developer</button>
+    </div>
+    </div>
   </div>
 </template>
 
@@ -35,7 +52,33 @@ export default {
         { top: '18rem', left: '78rem' },
         { top: '35rem', left: '43rem' },
         { top: '35rem', left: '60rem' }
-      ]
+      ],
+      name: '',
+      picture: ''
+    }
+  },
+  methods: {
+    addDeveloper() {
+      let payload = {
+        name: this.name,
+        picture: this.picture
+      }
+      this.$store.dispatch('createDeveloper', payload)
+        .then(() => {
+          this.$store.dispatch('getDevelopers')
+            .then(res => {
+              this.developers = res.data.developers;
+            })
+        })
+    },
+    deleteDeveloper() {
+      this.$store.dispatch('deleteDeveloper', this.developers.at(-1).id)
+        .then(() => {
+          this.$store.dispatch('getDevelopers')
+            .then(res => {
+              this.developers = res.data.developers;
+            })
+        })
     }
   } 
 }

@@ -46,4 +46,12 @@ body {
 .image-container {
   position: relative;
 }
+
+.form-field {
+  padding: 1rem
+}
+
+.submit-form {
+  color: red;
+}
 </style>
