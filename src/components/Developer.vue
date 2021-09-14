@@ -1,6 +1,6 @@
 <template>
   <div style="position: absolute" :style="{ top: absolutePositioning.top, left: absolutePositioning.left }">
-    <span>{{ name }}</span>
+    <span style="font-size: 3rem">{{ name }}</span>
     <img 
       :src="picture"
       class="developer">

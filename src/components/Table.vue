@@ -29,12 +29,12 @@ export default {
     return {
       developers: [],
       absolutePositioning: [
-        { top: '3rem', left: '47rem' },
-        { top: '3rem', left: '65rem' },
-        { top: '18rem', left: '28rem' },
-        { top: '18rem', left: '80rem' },
-        { top: '35rem', left: '48rem' },
-        { top: '35rem', left: '65rem' }
+        { top: '3rem', left: '40rem' },
+        { top: '3rem', left: '60rem' },
+        { top: '18rem', left: '22rem' },
+        { top: '18rem', left: '78rem' },
+        { top: '35rem', left: '43rem' },
+        { top: '35rem', left: '60rem' }
       ]
     }
   } 
