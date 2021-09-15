@@ -39,7 +39,6 @@ const store = new Vuex.Store({
       })
     },
     createDeveloper: ({ state }, payload) => { 
-      console.log(state)
       return axios({
         method: 'post',
         baseURL: '/developers',
@@ -47,7 +46,6 @@ const store = new Vuex.Store({
       })
     },
     deleteDeveloper: ({ state }, payload) => {
-      console.log(state)
       return axios({
         method: 'delete',
         baseURL: `/developers/${payload}`
