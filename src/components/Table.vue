@@ -36,12 +36,6 @@ import Developer from './Developer.vue'
 export default {
   components: { Developer },
   name: 'Table',
-  created() {
-    this.$store.dispatch('getDevelopers')
-      .then(res => {
-        this.developers = res.data.developers;
-      })
-  },
   data() {
     return {
       developers: [],
